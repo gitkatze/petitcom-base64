@@ -1,9 +1,7 @@
 '
 ' BASE64 ﾃﾞｺｰﾄﾞ ﾃｽﾄ
 '
-BASE64TABLE$="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
-@MAIN
 ? "*"*19
 ? " BASE64 ﾃﾞｺｰﾄﾞ ﾃｽﾄ"
 ? "*"*19
@@ -17,9 +15,11 @@ GOSUB @STR2HEXSTR
 ? HEXSTR$
 ? ""
 ? "ﾎﾞﾀﾝ ｦ ｵｼﾃ ｸﾀﾞｻｲ..."
-@LOOP
-WAIT 1
-IF BUTTON()==0 THEN @LOOP
+FOR I=0 TO 1
+ WAIT 1
+ IF BUTTON()!=0 THEN END
+ I=0
+NEXT
 END
 
 '===============
@@ -28,6 +28,7 @@ END
 @BASE64DEC
 ' INPUT : B64$
 ' OUTPUT: TEXT$
+BASE64TABLE$="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 TEXT$=""
 _C0=0:_C1=0:_C2=0:_C3=0
 _B0=0:_B1=0:_B2=0
